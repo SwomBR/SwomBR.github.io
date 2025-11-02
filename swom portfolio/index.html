@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swom B R — Data Analyst</title>
+  <meta name="description" content="Swom B R — Data Analyst Portfolio" />
+  <style>
+    :root {
+      --bg: #070617;
+      --card: rgba(255,255,255,0.03);
+      --neon-purple: #7f00ff;
+      --neon-blue: #00d2ff;
+      --muted: #bebfc6;
+      --text: #eef0f6;
+      --accent-gradient: linear-gradient(90deg,var(--neon-purple),var(--neon-blue));
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(127,0,255,0.06), transparent),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(0,210,255,0.04), transparent),
+                  var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:36px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      gap:30px;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;overflow:hidden}
+    .logo img{width:100%;height:100%;object-fit:cover}
+    .name h1{font-size:1.05rem;font-weight:700}
+    .name p{font-size:0.8rem;color:var(--muted)}
+
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:18px;
+      font-weight:600;
+      font-size:0.9rem;
+      transition:color .18s ease,transform .12s ease;
+    }
+    nav a:hover{color:var(--neon-blue);transform:translateY(-2px)}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:360px 1fr;
+      gap:32px;
+      align-items:center;
+    }
+    .avatar{
+      width:360px;
+      border-radius:22px;
+      overflow:hidden;
+    }
+    .avatar img{width:100%;height:auto;display:block;border-radius:22px}
+
+    .intro{
+      padding:0;
+      background:none;
+      border-radius:0;
+      box-shadow:none;
+    }
+    .greeting{color:var(--muted);font-size:0.95rem;margin-bottom:10px}
+    .who{color:var(--neon-purple);font-weight:700}
+    .title{
+      font-size:2.2rem;
+      font-weight:800;
+      line-height:1.1;
+      margin-bottom:14px;
+      color:var(--text);
+    }
+    .accent{
+      background:var(--accent-gradient);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .lead{
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.6;
+      margin-bottom:18px;
+    }
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 20px;
+      border-radius:999px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+      text-decoration:none;
+      color:#fff;
+      background:var(--accent-gradient);
+      box-shadow:0 6px 24px rgba(127,0,255,0.14),0 0 26px rgba(0,210,255,0.06);
+      transition:transform .12s ease,box-shadow .18s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.ghost{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted);
+      box-shadow:none;
+    }
+
+    /* Grid layout */
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:30px;
+      align-items:start;
+    }
+    .card{
+      background:var(--card);
+      border-radius:18px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 8px 34px rgba(0,0,0,0.6),inset 0 0 30px rgba(127,0,255,0.02);
+    }
+    .section-title{
+      font-size:1.35rem;
+      color:var(--neon-purple);
+      margin-bottom:14px;
+      font-weight:800;
+      text-shadow:0 0 10px rgba(127,0,255,0.08);
+    }
+
+    /* Experience */
+    .experience-list{display:flex;flex-direction:column;gap:12px}
+    .exp-item{
+      display:flex;gap:12px;align-items:flex-start;
+      padding:12px;border-radius:12px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
+      border:1px solid rgba(255,255,255,0.02);
+      transition:transform .12s ease,box-shadow .18s;
+    }
+    .exp-item:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+    .exp-meta{min-width:110px;font-size:0.84rem;color:var(--muted)}
+    .exp-body h3{font-size:1rem;margin-bottom:6px}
+    .exp-body p{color:var(--muted);font-size:0.93rem;line-height:1.45}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+    .proj{padding:14px;border-radius:12px;background:linear-gradient(135deg,rgba(127,0,255,0.04),rgba(0,210,255,0.02));border:1px solid rgba(255,255,255,0.02)}
+    .proj h4{font-size:0.98rem;margin-bottom:8px}
+    .proj p{color:var(--muted);font-size:0.88rem;line-height:1.4}
+
+    /* Right column */
+    .side-stack{display:flex;flex-direction:column;gap:18px}
+    .edu-item{padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02)}
+    .edu-item h4{font-size:0.98rem;margin-bottom:6px}
+    .edu-item p{color:var(--muted);font-size:0.88rem}
+    .skills-list{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:linear-gradient(90deg,rgba(127,0,255,0.06),rgba(0,210,255,0.03));padding:8px 12px;border-radius:999px;font-weight:700;color:var(--text);font-size:0.82rem;border:1px solid rgba(255,255,255,0.02)}
+
+    .contact-row{display:flex;flex-direction:column;gap:6px}
+    .contact-row a{color:var(--neon-blue);text-decoration:none;font-weight:700}
+    .muted{color:var(--muted);font-size:0.92rem}
+    footer{margin-top:10px;color:var(--muted);font-size:0.85rem;text-align:center}
+
+    @media(max-width:1000px){
+      .hero{grid-template-columns:1fr;text-align:center}
+      .avatar{width:260px;margin:0 auto}
+      .grid{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    @media(max-width:420px){
+      body{padding:20px}
+      .avatar{width:220px}
+      .title{font-size:1.6rem}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <!-- header -->
+    <header>
+      <div class="brand">
+        <div class="logo"><img src="AVATHAR.png" alt="Swom avatar"></div>
+        <div class="name">
+          <h1>Swom B R</h1>
+          <p>Data Analyst</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- hero -->
+    <section class="hero">
+      <div class="avatar"><img src="AVATHAR.png" alt="Swom B R"></div>
+      <div class="intro">
+        <p class="greeting">Hello — I'm <span class="who">Swom B R</span></p>
+        <h2 class="title">Data Analyst <span class="accent">— Insights & Visualization</span></h2>
+        <p class="lead">
+          Analytical and detail-focused Data Analyst pursuing an M.Sc. in Computer Science (Specialization in Data Analytics)
+          at the Digital University of Kerala. Proficient in SQL, Python, R, Microsoft Excel and Power BI / Tableau. Experienced
+          in extracting insights, building dashboards and supporting data-driven decisions.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="Resume[1].pdf" download>Download Resume</a>
+          <a class="btn ghost" href="#contact">Let's Connect</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- left -->
+      <div>
+        <section id="experience" class="card">
+          <div class="section-title">Work Experience</div>
+          <div class="experience-list">
+            <div class="exp-item">
+              <div class="exp-meta">Feb 2025 — Apr 2025<br><span class="muted">Bengaluru</span></div>
+              <div class="exp-body">
+                <h3>Cloudisian — Data Analyst Intern</h3>
+                <p>Used <strong>SQL</strong> and <strong>Python</strong> to extract insights and create visual dashboards in <strong>Power BI</strong> for decision support.</p>
+              </div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-meta">Aug 2024 — May 2025<br><span class="muted">Kozhikode</span></div>
+              <div class="exp-body">
+                <h3>RE & LE Travel Buddy — Product Analyst</h3>
+                <p>Enhanced UI for a travel web app, analyzed user data, and improved recommendation algorithms.</p>
+              </div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-meta">Jul 2023 — Sep 2024<br><span class="muted">Bengaluru</span></div>
+              <div class="exp-body">
+                <h3>HKBK Degree College — Admission Coordinator</h3>
+                <p>Managed registrations, Excel reporting, and student records while supporting admin operations.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="card" style="margin-top:16px">
+          <div class="section-title">Selected Projects</div>
+          <div class="projects-grid">
+            <div class="proj"><h4>SkillVault — Blockchain Credential System</h4><p>Developed a blockchain-based credential verification system for secure digital certifications.</p></div>
+            <div class="proj"><h4>Durocap Roofing Solutions — Official Website</h4><p>Built the corporate website with HTML, CSS, JS; improved branding and lead generation.</p></div>
+            <div class="proj"><h4>Stress Analysis — Power BI & Alert System</h4><p>Created dashboards and data models to classify stress levels and trigger alerts.</p></div>
+            <div class="proj"><h4>RE & LE — Traveling Guide Web App</h4><p>Analyzed user behavior and improved recommendation features for better engagement.</p></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- right -->
+      <aside class="side-stack">
+        <section id="education" class="card">
+          <div class="section-title">Education</div>
+          <div class="edu-item"><h4>M.Sc. Computer Science (Data Analytics) — Digital University of Kerala</h4><p class="muted">Ongoing</p></div>
+          <div class="edu-item"><h4>B.C.A. — Bengaluru North University</h4><p class="muted">GPA: 7.9 — Coursework: Database Management, Data Science, Cloud Computing</p></div>
+          <div class="edu-item"><h4>Pre-University — Ezhipuram Higher Secondary School (Kerala)</h4><p class="muted">Final Grade: 86.7% — Biology & Mathematics (Kerala State Board)</p></div>
+          <div class="edu-item"><h4>High School — MAM Model School (Kerala)</h4><p class="muted">Final Grade: 74.4% — CBSE</p></div>
+        </section>
+
+        <section class="card">
+          <div class="section-title">Skills</div>
+          <div class="skills-list">
+            <div class="skill">Python</div><div class="skill">SQL</div><div class="skill">R Programming</div>
+            <div class="skill">Microsoft Excel</div><div class="skill">Power BI / Tableau</div>
+            <div class="skill">Data Analytics</div><div class="skill">HTML</div><div class="skill">CSS</div>
+            <div class="skill">JavaScript</div><div class="skill">Storytelling</div><div class="skill">Strategic Planning</div><div class="skill">UI/UX Design</div>
+          </div>
+        </section>
+
+        <section id="contact" class="card">
+          <div class="section-title">Get in Touch</div>
+          <div class="contact-row">
+            <div><strong class="muted">Email</strong><br><a href="mailto:swom004@gmail.com">swom004@gmail.com</a></div>
+            <div><strong class="muted">Phone</strong><br><a href="tel:8217590608">+91 82175 90608</a></div>
+            <div><strong class="muted">LinkedIn</strong><br><a href="https://linkedin.com/in/swom-br" target="_blank" rel="noopener">/in/swom-br</a></div>
+            <div><strong class="muted">Linktree</strong><br><a href="https://linktr.ee/swombr" target="_blank" rel="noopener">linktr.ee/swombr</a></div>
+            <div><strong class="muted">Address</strong><br><span class="muted">Rajeshwary Nilaya, T. Chennaiah Layout, Nagawara Main Rd, near Gangaparameshwari Temple, Nagavara, Bengaluru, Karnataka 560045</span></div>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>© <strong>Swom B R</strong> — Data Analyst · Built with HTML & CSS</footer>
+  </main>
+</body>
+</html>
